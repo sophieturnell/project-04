@@ -1,0 +1,143 @@
+[
+{
+  "model": "posts.comment",
+  "pk": 1,
+  "fields": {
+    "comment": "I can help! But I'm male... is it a mixed team?"
+  }
+},
+{
+  "model": "posts.sport",
+  "pk": 1,
+  "fields": {
+    "sport_name": "Basketball"
+  }
+},
+{
+  "model": "posts.sport",
+  "pk": 2,
+  "fields": {
+    "sport_name": "Cricket"
+  }
+},
+{
+  "model": "posts.sport",
+  "pk": 3,
+  "fields": {
+    "sport_name": "Football"
+  }
+},
+{
+  "model": "posts.sport",
+  "pk": 4,
+  "fields": {
+    "sport_name": "Netball"
+  }
+},
+{
+  "model": "posts.sport",
+  "pk": 5,
+  "fields": {
+    "sport_name": "Rugby"
+  }
+},
+{
+  "model": "posts.sport",
+  "pk": 6,
+  "fields": {
+    "sport_name": "Squash"
+  }
+},
+{
+  "model": "posts.sport",
+  "pk": 7,
+  "fields": {
+    "sport_name": "Tennis"
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 1,
+  "fields": {
+    "attention_grabber": "Help please!",
+    "location_name": "Battersea Park",
+    "date": "2019-11-28",
+    "time": "18:00:00",
+    "position": "C",
+    "lat": 51.4813,
+    "lon": 0.1528,
+    "address": "Carriage Dr E, Park, London SW11 4NJ",
+    "number_of_players_needed": 1,
+    "sport_name": 4,
+    "comment": null
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 2,
+  "fields": {
+    "attention_grabber": "Finals fill ins :)",
+    "location_name": "Rocks Lane Multi Sports Centre",
+    "date": "2019-11-21",
+    "time": "20:00:00",
+    "position": "GA, GK",
+    "lat": 51.4952221,
+    "lon": -0.2529557,
+    "address": "60 Chiswick Common Road, Chiswick, London, W4 1RZ",
+    "number_of_players_needed": 2,
+    "sport_name": 4,
+    "comment": null
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 3,
+  "fields": {
+    "attention_grabber": "Searching for super netballer",
+    "location_name": "Parsons Green",
+    "date": "2019-11-25",
+    "time": "18:00:00",
+    "position": "WA",
+    "lat": 51.4673076,
+    "lon": -0.1954798,
+    "address": "South Park Peterborough Road Fulham SW6 3HH",
+    "number_of_players_needed": 1,
+    "sport_name": 4,
+    "comment": null
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 4,
+  "fields": {
+    "attention_grabber": "Desperately short tonight- please help!",
+    "location_name": "Battersea Park",
+    "date": "2019-11-28",
+    "time": "19:00:00",
+    "position": "GD, WD",
+    "lat": 51.48104,
+    "lon": -0.151527,
+    "address": "Carriage Drive East, Battersea Park, London, SW11 4NJ",
+    "number_of_players_needed": 2,
+    "sport_name": 4,
+    "comment": null
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 5,
+  "fields": {
+    "attention_grabber": "Ringer needed for Winning team ;)",
+    "location_name": "Clapham Common",
+    "date": "2019-11-28",
+    "time": "18:00:00",
+    "position": "GS",
+    "lat": 51.460784,
+    "lon": -0.143281,
+    "address": "10 Rookery Road Clapham Common London SW4 9DD",
+    "number_of_players_needed": 1,
+    "sport_name": 4,
+    "comment": 1
+  }
+}
+]
