@@ -1,5 +1,12 @@
 from django.db import models
 
+# COMMENTS
+class Comment(models.Model):
+    comment = models.CharField(max_length=500)
+
+    def __str__(self):
+        return self.comment
+
 # SPORTS - One to Many -ADVERTS/Posts
 class Sport(models.Model):
     sport_name = models.CharField(max_length=50, default='Basketball')
@@ -20,13 +27,20 @@ class Post(models.Model):
     address = models.CharField(max_length=500)
     number_of_players_needed = models.IntegerField(null=True)
     
-    #adds id (sport) to post - can only have one sport
-    sport_name = models.ForeignKey(
+    sport_name = models.ForeignKey(  #adds id (sport) to post - can only have one sport
       Sport,
       related_name='posts',#adds posts to sport simuteneously
       on_delete=models.DO_NOTHING, #if post is deleted - do not delete the sport aswell
       null=True
     )
+
+    comment = models.ForeignKey(
+        Comment,
+        related_name='posts',
+        on_delete=models.CASCADE,
+        null=True
+    )
+    
 
   #CHECK WHY DOESN'T SHOW
     def __str__(self):
