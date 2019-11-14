@@ -1,8 +1,11 @@
 from django.db import models
 
 # SPORTS - One to Many -ADVERTS/Posts
-# class Sport(models.Model):
-    
+class Sport(models.Model):
+    sport_name = models.CharField(max_length=50, default='Basketball')
+
+    def __str__(self):
+        return f'{self.sport_name}'
 
 
 # ADVERTS FOR RINGERS
@@ -15,7 +18,16 @@ class Post(models.Model):
     lat = models.FloatField()
     lon = models.FloatField()
     address = models.CharField(max_length=500)
+    number_of_players_needed = models.IntegerField(null=True)
+    
+    #adds id (sport) to post - can only have one sport
+    sport_name = models.ForeignKey(
+      Sport,
+      related_name='posts',#adds posts to sport simuteneously
+      on_delete=models.DO_NOTHING, #if post is deleted - do not delete the sport aswell
+      null=True
+    )
 
-#CHECK WHY DOESN'T SHOW
-def __str__(self):
-    return self.attention_grabber
+  #CHECK WHY DOESN'T SHOW
+    def __str__(self):
+        return self.attention_grabber
