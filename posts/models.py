@@ -26,7 +26,7 @@ class Post(models.Model):
     lon = models.FloatField()
     address = models.CharField(max_length=500)
     number_of_players_needed = models.IntegerField(null=True)
-    
+
     sport_name = models.ForeignKey(  #adds id (sport) to post - can only have one sport
       Sport,
       related_name='posts',#adds posts to sport simuteneously
@@ -37,7 +37,7 @@ class Post(models.Model):
     comment = models.ForeignKey(
         Comment,
         related_name='posts',
-        on_delete=models.CASCADE,
+        on_delete=models.CASCADE, #if the post is deleted delete the comment
         null=True
     )
     
