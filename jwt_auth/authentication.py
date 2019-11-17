@@ -1,9 +1,10 @@
 # pylint: disable=no-member,arguments-differ
 from rest_framework.authentication import BasicAuthentication
 from rest_framework.exceptions import PermissionDenied  #exceptions = errors
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.conf import settings  #to access the secret
 import jwt
+User = get_user_model()
 
 class JWTAuthentication(BasicAuthentication):  #SAME LAYOUT IN JS
 

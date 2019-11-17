@@ -1,98 +1,55 @@
 # pylint: disable=no-member,arguments-differ
 from rest_framework import serializers
+from django.contrib.auth import get_user_model
 from .models import Post, Sport, Comment
+User = get_user_model()
 
-# NESTED POST
-class NestedPostSerializer(serializers.ModelSerializer):
+# I am using a slightly diffrent method here than previously used with the nested serializers.
+# Creating a populated serailizer at the bottom.
+# populated serializers below do not inherit from 'serializers.ModelSerializer' (like the regular ones do,) but instead inherit from one we've already written.
+# Similar to '.populate()' with express and mongoose for nested fields there.
+# Use whenever you want the data returned to populate any nested realtions.
+# like user on posts
+# Removes the need to create custom create and update methods here.
+# The downside to this method is that, if you look at 'posts/views.py', we cannot use the generic ListCreateViews etc. from DRF
+# instead have to write our views(controllers) pretty much ourselves
+# Again which method to use depends on USE CASE
+# I have chosen this method here, as it makes easier to attach things like the owner of posts to them when they are created.
 
-    class Meta:
-        model = Post
-        fields = ('id',
-                  'attention_grabber',
-                  'location_name',
-                  'date',
-                  'time',
-                  'position',
-                  'lat',
-                  'lon',
-                  'address',
-                  'number_of_players_needed',)
-
-# NESTED SPORT
-class NestedSportSerializer(serializers.ModelSerializer):
+# populate a nested owner on a post or comment
+class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Sport
-        fields = ('id', 'sport_name')
+        model = User
+        fields = ('id', 'username', 'profile_image')
 
-# NESTED COMMENT
-class NestedCommentSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Comment
-        fields = ('id', 'comment')
-
-# COMMENT
-class CommentSerializer(serializers.ModelSerializer):
-
-    posts = NestedPostSerializer(many=True)
-
-    class Meta:
-        model = Comment
-        fields = ('id', 'comment', 'posts')
 
 # SPORT
 class SportSerializer(serializers.ModelSerializer):
-
-    posts = NestedPostSerializer(many=True)
 
     class Meta:
         model = Sport
         fields = ('id', 'sport_name', 'posts')
 
-# POST
+
+# COMMENTS
+# populate a nested comment on a post or comment
+class CommentSerializer(serializers.ModelSerializer): #if we didnt do tbhis we would just see a list of comment IDs returned on a post, instead of the full objects in a list.
+
+    class Meta:
+        model = Comment
+        fields = ('id', 'comment', 'owner', 'post')
+
+# We use this on comment population to show the owner as a serialized nested field. note how this is inherting directly from the comment serializer above, and there for has all its meta class and feilds infromation automatically added
+class PopulatedCommentSerializer(CommentSerializer):
+
+    owner = UserSerializer() # use the owner serializer on the owner field of comments
+
+
+#POSTS
 class PostSerializer(serializers.ModelSerializer):
 
-    sport_name = NestedSportSerializer()
-    comment = NestedCommentSerializer(many=True, required=False)  #because you should not be able to edit comments here the field shhould be required and allows many comments
-
-    # ADD A POST
-    def create(self, data): # data=incoming JSON conveted to python
-        sport_data = data.pop('sport_name') # storing and removing from data object
-
-        post = Post(**data) #spreads post data in and creates new entry wth surplus
-        post.sport = Sport.objects.get(**sport_data) #Many to Onee
-        post.save() # save to create primary key before setting a many to many relationship in the model
-        return post #newly created station to be sent as the response to the client
-
-    # UPDATE A POST
-    def update(self, post, data): #post=before, data=after
-        sport_data = data.pop('sport_name') # removes old data from object
-        # the comments are not included in the update method because you should not be able to edit comments here
-
-
-
-        # checking to see if each line neeeds to be updated
-        post.attention_grabber = data.get('attention_grabber', post.attention_grabber)
-        post.location_name = data.get('location_name', post.location_name)
-        post.date = data.get('date', post.date)
-        post.time = data.get('time', post.time)
-        post.position = data.get('position', post.position)
-        post.lat = data.get('lat', post.lat)
-        post.lon = data.get('lon', post.lon)
-        post.address = data.get('address', post.address)
-        post.number_of_players_needed = data.get('number_of_players_needed', post.number_of_players_needed)
-
-        post.sport = Sport.objects.get(**sport_data) #Many to One#
-        # the comments are not included in the update method because you should not be able to edit comments here
-
-        post.save()
-        return post
-
-
-
-
-    class Meta: #register fields
+    class Meta:
         model = Post
         fields = ('id',
                   'attention_grabber',
@@ -104,6 +61,14 @@ class PostSerializer(serializers.ModelSerializer):
                   'lon',
                   'address',
                   'number_of_players_needed',
-                  'sport_name',
-                  'comment',
-                )
+                  'owner',
+                  'comments',
+                  'sport_name'
+                  )
+        extra_kwargs = {'comments': {'required': False}} # this lines tell the serializer that sometimes, comments wont be there, and thats fine. This is important otherwise when we create a post. it would say we need to make comments along with it. Again this is a USE CASE idea. Maybe you have a nested field that you would want to be required on creation. This just doesn't make sense for comments. we would want to make a post, and then allow users to make comments on that post
+
+class PopulatedPostSerializer(PostSerializer): # again same idea as with the populated comment serilaizer, it inherits from Post Serializer and gets all the meta class and fields from that
+
+    owner = UserSerializer() # any user on the post will be seralized and nested(like .populate() in mongoose)
+    comments = PopulatedCommentSerializer(many=True)
+    sport_name = SportSerializer() # same with comments, but in this case, we let the serializer know there will be a list of comments to seralize not just one.

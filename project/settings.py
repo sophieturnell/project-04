@@ -125,9 +125,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-REST_FRAMEWORK = {
+REST_FRAMEWORK = { #Allows RFW to use custom authentication classes
     'DEFAULT_RENDERER_CLASSES': [
-        'rest_framework.renderers.JSONRenderer',   
+        'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -136,3 +136,5 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ],
 }
+
+AUTH_USER_MODEL = 'jwt_auth.User' # regsitering our custom user model as the auth model.

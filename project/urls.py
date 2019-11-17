@@ -14,11 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include  #include, that lets us reference our apps as strings below
 
 urlpatterns = [
     path('django-admin/', admin.site.urls),
-    path('admin/', include('rest_framework.urls')),
     path('api/', include('posts.urls')),
-    path('api/', include('jwt_auth.urls')),
+    path('api/', include('jwt_auth.urls')), # prefix api & send to jwt_auth urls, login, register & profile
 ]
