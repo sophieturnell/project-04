@@ -77,11 +77,11 @@ class CommentListView(APIView): # url='posts/:id/comments'
             return Response(serialized_post.data) # send back the post with the new comment attached
         return Response(comment.errors, status=HTTP_422_UNPROCESSABLE_ENTITY) # return any errors from the comment if it wasn't valid
 
-# SPORTS
-class SportListView(APIView):
+# # SPORTS
+# class SportListView(APIView):
 
-    # Get all SPORTS
-    def get(self, _request):
-        posts = Sport.objects.all()
-        serialized_sports = PopulatedSportSerializer(sports, many=True)
-        return Response(serialized_posts.data)
+#     # Get all SPORTS
+#     def get(self, _request):
+#         posts = Sport.objects.all()
+#         serialized_sports = PopulatedSportSerializer(sports, many=True)
+#         return Response(serialized_posts.data)

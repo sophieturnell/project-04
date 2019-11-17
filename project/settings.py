@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'posts',
     'jwt_auth',
+    'frontend',
 ]
 
 MIDDLEWARE = [
@@ -133,7 +134,6 @@ REST_FRAMEWORK = { #Allows RFW to use custom authentication classes
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'jwt_auth.authentication.JWTAuthentication',  #To use our Python secure route (rather than the default)
         'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
     ],
 }
 

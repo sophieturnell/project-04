@@ -18,6 +18,8 @@ from django.urls import path, include  #include, that lets us reference our apps
 
 urlpatterns = [
     path('django-admin/', admin.site.urls),
+    path('admin/', include('rest_framework.urls')),
     path('api/', include('posts.urls')),
     path('api/', include('jwt_auth.urls')), # prefix api & send to jwt_auth urls, login, register & profile
+    path('', include('frontend.urls')),
 ]
