@@ -15,15 +15,15 @@ class JWTAuthentication(BasicAuthentication):  #SAME LAYOUT IN JS
             return None
 
         if not header.startswith('Bearer'):  #does the value start with "Bearer"
-            return PermissionDenied({'message': 'Invalid Authorization Header'})
+            raise PermissionDenied({'message': 'Invalid Authorization Header'})
 
         token = header.replace('Bearer ', '')
 
         try:
             payload = jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
             user = User.objects.get(pk=payload.get('sub'))   #sub is just best practice - can use any word if clearer (e.g. 2 types of user - maybe use diff words)
-        except jwt.exceptions.InvalidTokenError:   #equivalent to errors in JS
-            raise PermissionDenied({'message': 'Invalid Token'})
+        # except jwt.exceptions.InvalidTokenError:   #equivalent to errors in JS
+        #     raise PermissionDenied({'message': 'Invalid Token'})
         except User.DoesNotExist:
             raise PermissionDenied({'message': 'User not found 2'})
 

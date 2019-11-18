@@ -1,7 +1,7 @@
 # pylint: disable=no-member
 from rest_framework.response import Response # response function from DRF- to send JSON responses
 from rest_framework.views import APIView # more work but more control over the functionality
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from rest_framework.status import HTTP_201_CREATED, HTTP_422_UNPROCESSABLE_ENTITY, HTTP_204_NO_CONTENT # custom response status codes from django
 from .models import Post
 from .serializers import PopulatedPostSerializer, PostSerializer, CommentSerializer
@@ -10,10 +10,11 @@ from .serializers import PopulatedPostSerializer, PostSerializer, CommentSeriali
 # POSTS - Index - get, post
 class PostListView(APIView): #url='/posts'
 
-    permission_classes = (IsAuthenticated, ) #requires a token
+    permission_classes = (IsAuthenticatedOrReadOnly, ) #requires a token
 
     # Get all POSTS
     def get(self, _request):
+        print('hello')
         posts = Post.objects.all() # get all the posts from the DB
         serialized_posts = PopulatedPostSerializer(posts, many=True) # serialise posts into JSON, 
         return Response(serialized_posts.data) # send as response to the client
