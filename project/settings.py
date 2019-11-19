@@ -47,7 +47,6 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -132,9 +131,8 @@ REST_FRAMEWORK = { #Allows RFW to use custom authentication classes
         'rest_framework.renderers.BrowsableAPIRenderer',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'jwt_auth.authentication.JWTAuthentication',  #To use our Python secure route (rather than the default)
-        'rest_framework.authentication.BasicAuthentication',
-    ],
+        'jwt_auth.authentication.JWTAuthentication'  #To use our Python secure route (rather than the default)   
+    ]
 }
 
 AUTH_USER_MODEL = 'jwt_auth.User' # regsitering our custom user model as the auth model.

@@ -30,7 +30,7 @@ class PostsIndex extends React.Component {
       <h1>Index Page here</h1>
       <div>
         {this.state.posts.map(post => (
-          <PostCard key={post._id} {...post} />
+          <PostCard key={post.id} {...post} />
         ))}
       </div>
       </>

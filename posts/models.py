@@ -19,8 +19,6 @@ class Post(models.Model):
     date = models.DateField()
     time = models.TimeField()
     position = models.CharField(max_length=20)
-    lat = models.FloatField()
-    lon = models.FloatField()
     address = models.CharField(max_length=500)
     number_of_players_needed = models.IntegerField(null=True)
 

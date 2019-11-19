@@ -25,8 +25,10 @@ module.exports = {
     watchContentBase: true,
     historyApiFallback: true,
     proxy: {
-      '/api': 'http://localhost:8000',
-      secure: false //to solve CORS issue
+      '/api': {
+        target: 'http://localhost:8000',
+        secure: false //to solve CORS issue
+      }
     }
   },
   plugins: [

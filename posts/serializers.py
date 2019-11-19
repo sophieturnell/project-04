@@ -29,7 +29,7 @@ class SportSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Sport
-        fields = ('id', 'sport_name', 'posts')
+        fields = ('id', 'sport_name')
 
 
 # COMMENTS
@@ -57,8 +57,6 @@ class PostSerializer(serializers.ModelSerializer):
                   'date',
                   'time',
                   'position',
-                  'lat',
-                  'lon',
                   'address',
                   'number_of_players_needed',
                   'owner',

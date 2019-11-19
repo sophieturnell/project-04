@@ -3,8 +3,8 @@ from rest_framework.response import Response # response function from DRF- to se
 from rest_framework.views import APIView # more work but more control over the functionality
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from rest_framework.status import HTTP_201_CREATED, HTTP_422_UNPROCESSABLE_ENTITY, HTTP_204_NO_CONTENT # custom response status codes from django
-from .models import Post
-from .serializers import PopulatedPostSerializer, PostSerializer, CommentSerializer
+from .models import Post, Sport
+from .serializers import PopulatedPostSerializer, PostSerializer, CommentSerializer, SportSerializer
 
 
 # POSTS - Index - get, post
@@ -79,10 +79,10 @@ class CommentListView(APIView): # url='posts/:id/comments'
         return Response(comment.errors, status=HTTP_422_UNPROCESSABLE_ENTITY) # return any errors from the comment if it wasn't valid
 
 # # SPORTS
-# class SportListView(APIView):
+class SportListView(APIView):
 
-#     # Get all SPORTS
-#     def get(self, _request):
-#         posts = Sport.objects.all()
-#         serialized_sports = PopulatedSportSerializer(sports, many=True)
-#         return Response(serialized_posts.data)
+    # Get all SPORTS
+    def get(self, _request):
+        sports = Sport.objects.all() 
+        serialized_sports = SportSerializer(sports, many=True)
+        return Response(serialized_sports.data)

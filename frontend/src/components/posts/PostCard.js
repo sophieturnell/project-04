@@ -1,20 +1,33 @@
+/* eslint-disable camelcase */
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const PostCard = ({ attention_grabber,
-  location_name,
-  date,
-  time,
-  // sport_name,//changed to camel case
-  _id }) => (
+const PostCard = ({ attention_grabber, location_name, date, time, // sport_name,//changed to camel case
+  id }) => (
+    
     <>
-  <Link to={`/posts/${_id}`}>
-    <h3>{attention_grabber}</h3>
-    {/* <h4>{sport_name}</h4> */}
-    <h4>{date} {time}</h4>
-    <h4>{location_name}</h4>
 
+<div className="column is-one-quarter-desktop is-one-third-tablet is-half-mobile">
+  <Link to={`/posts/${id}`}>
+    <div className="card">
+      <div className="card-header">
+        <h4 className="card-header-title">{attention_grabber}</h4>
+      </div>
+      <div className="card-image">
+        {/* <figure className="image">
+          <img src={image} alt={attention_grabber} />
+        </figure> */}
+        <div className="card-content">
+          {/* <h5 className="title is-6">{sport_name}</h5> */}
+          <h5 className="title is-6">{date}</h5>
+          <h5 className="title is-6">{time}</h5>
+          <h6 className="subtitle is-6">{location_name}</h6>
+        </div>
+      </div>
+    </div>
   </Link>
+</div>
+
   </>
 )
 
