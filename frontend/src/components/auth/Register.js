@@ -21,30 +21,31 @@ class Register extends React.Component {
 
   handleChange(e) {
     const data = { ...this.state.data, [e.target.name]: e.target.value }
-    console.log(data)
-    // const errors = { ...this.state.data }, [e.target.name]: '' }
-    this.setState({ data })
+    // const errors = { ...this.state.errors }, [e.target.name]: '' }
+    this.setState({ data 
+      //, errors 
+    })
   }
 
   handleSubmit(e) {
     console.log('reaching handle submit')
     e.preventDefault()
     axios.post('/api/register', this.state.data)
-    //     .then(res => console.log(res.data))
+      // .then(res => console.log(res.data))
       .then(() => this.props.history.push('/login'))
-      // .catch(err => this.console.log(err))
-      // .catch(err => this.setState({ errors: err.response.data.errors }))
+      // .catch(err => console.log(err))
+      .catch(err => this.setState({ errors: err.response.data }))
   // console.log('submitted', this.state.data)
   }
 
   render() {
-    console.log(this.state)
+    console.log('rendered', this.state)
     return (
-      <>
+      <div className="register-page">
         <section className="section">
+          {/* <section className="hero is-fullheight-with-navbar">
+            <div className="hero-body"> */}
           <div className="container">
-
-            < h1 > Register page showing</h1 >
 
             <form onSubmit={this.handleSubmit}>
 
@@ -60,7 +61,7 @@ class Register extends React.Component {
                     onChange={this.handleChange}
                   />
                 </div>
-                
+                {this.state.errors.username && <small className="help is-danger">{this.state.errors.username}</small>}
               </div>
 
               <div className="field">
@@ -73,7 +74,7 @@ class Register extends React.Component {
                     onChange={this.handleChange}
                   />
                 </div>
-               
+                {this.state.errors.email && <small className="help is-danger">{this.state.errors.email}</small>}
               </div>
 
               <div className="field">
@@ -87,7 +88,7 @@ class Register extends React.Component {
                     onChange={this.handleChange}
                   />
                 </div>
-               
+                {this.state.errors.password && <small className="help is-danger">{this.state.errors.password}</small>}
               </div>
 
               <div className="field">
@@ -101,7 +102,7 @@ class Register extends React.Component {
                     onChange={this.handleChange}
                   />
                 </div>
-                
+                {this.state.errors.password_confirmation && <small className="help is-danger">{this.state.errors.password_confirmation}</small>}
               </div>
 
               <button type="submit" className="button is-info is-fullwidth">Register</button>
@@ -110,13 +111,12 @@ class Register extends React.Component {
 
 
           </div>
+          {/* </div>
+          </section> */}
         </section>
-      </>
+      </div>
     )
   } 
 }
 
 export default Register
-
-// { this.state.errors.password && <small className="help is-danger">{this.state.errors.password}</small> }
-// { this.state.errors.passwordConfirmation && <small className="help is-danger">{this.state.errors.passwordConfirmation}</small> }

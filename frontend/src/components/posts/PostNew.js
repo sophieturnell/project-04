@@ -46,8 +46,6 @@ class PostNew extends React.Component {
     return (
       <section className="section">
         <div className="container">
-      
-          <h1>New Post form goes here</h1>
         
           <PostForm
             data={this.state.data}

@@ -12,8 +12,6 @@ const PostForm = ({ data, handleChange, handleSubmit, errors, sports }) => (
 
 
       <form onSubmit={handleSubmit}>
-        <h1>Post Form lives here</h1>
-
 
         <div className="field">
           <label className="label">Name of Post:</label>

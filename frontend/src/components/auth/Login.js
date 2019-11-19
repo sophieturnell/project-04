@@ -46,9 +46,6 @@ class Login extends React.Component {
 
   render() {
     return (
-      <>
-      <h1>Login page here</h1>
-
       <section className="section">
         <div className="container">
 
@@ -83,8 +80,6 @@ class Login extends React.Component {
           </form>
         </div>
       </section>
-
-      </>
     )
   }
 
