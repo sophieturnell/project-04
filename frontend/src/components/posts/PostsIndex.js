@@ -29,9 +29,15 @@ class PostsIndex extends React.Component {
 
       <section className="section">
         <div className="container">
-          {this.state.posts.map(post => (
-            <PostCard key={post.id} {...post} />
-          ))}
+          
+          <div className="columns is-mobile is-multiline">
+            {/* <div className="tile is-ancestor"> */}
+            {this.state.posts.map(post => (
+              <PostCard key={post.id} {...post} />
+            ))}
+
+          </div>
+
         </div>
       </section>
 

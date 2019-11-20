@@ -16,10 +16,14 @@ class Sport(models.Model):
 class Post(models.Model):
     attention_grabber = models.CharField(max_length=100, unique=True)
     location_name = models.CharField(max_length=50)
+    address = models.CharField(max_length=500)
+    lat = models.FloatField(null=True)
+    lon = models.FloatField(null=True)
     date = models.DateField()
     time = models.TimeField()
+    team_name = models.CharField(max_length=50, null=True)
+    post_image = models.CharField(max_length=500, null=True)
     position = models.CharField(max_length=20)
-    address = models.CharField(max_length=500)
     number_of_players_needed = models.IntegerField(null=True)
 
     owner = models.ForeignKey( # Attaching the owner to the model, this is makiing a one to many forgeign key realtionship to the user table. A user can have many posts but a post may only have one user. That is why the user id is stored here in the post model

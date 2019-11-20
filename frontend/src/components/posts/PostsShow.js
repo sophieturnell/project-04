@@ -23,7 +23,7 @@ class PostShow extends React.Component {
 
   handleDelete() {
     const postId = this.props.match.params.id
-    axios.delete(`/api/posts${postId}`, {
+    axios.delete(`/api/posts/${postId}`, {
       headers: { Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjJ9.vkchhx3eMgbeO7WiStVlvZYQjY_r1zInTM7YLwtqR54' }
     })
       .then(() => this.props.history.push('/posts'))
@@ -31,7 +31,10 @@ class PostShow extends React.Component {
   }
 
   isOwner() {
-    return Auth.getPayload().sub === this.state.post.owner
+    console.log('is owner', this.state)
+    console.log(Auth.getPayload().sub, 'sub')
+    console.log(this.state.post.owner.id, 'owner')
+    return Auth.getPayload().sub === this.state.post.owner.id
   }
 
   render() {
@@ -46,9 +49,9 @@ class PostShow extends React.Component {
           <hr />
           <div className="columns">
             <div className="column is-half">
-              {/* <figure className="image">
-                  <img src={cheese.image} alt={cheese.name} />
-                </figure> */}
+              <figure className="image">
+                <img src={post.post_image} alt={post.team_name} />
+              </figure>
             </div>
             <div className="column is-half">
               <h4 className="title is-4">Location</h4>
@@ -71,14 +74,6 @@ class PostShow extends React.Component {
               <p>{post.comments.name}</p>
               <hr />
 
-              {/* SORT AUTH TO EDIT */}
-              <Link to={`/posts/${post.id}/edit`} className="button is-info">
-                Edit Post
-              </Link>
-
-              <button onClick={this.handleDelete} className="button is-danger">Permanently Delete Post</button>
-
-              {/* AUTH ADD AND DELETE HERE */}
               {this.isOwner() &&
                   <>
                     <Link to={`/posts/${post.id}/edit`} className="button is-warning">
