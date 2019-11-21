@@ -20,10 +20,17 @@ class Auth {
   }
 
   static isAuthenticated() {
-    const payload = this.getPayload()
-    if (!payload) return false
-    const now = Math.round(Date.now() / 1000)
-    return now < payload.exp
+    const token = localStorage.getItem('token')
+    return token ? true : false
+
+    // const payload = this.getPayload()
+    // console.log(!payload)
+    // if (!payload) return false
+
+    // const now = Math.round(Date.now() / 1000)
+    // console.log(!now < payload.exp)
+    // return now < payload.exp
+
   }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import Auth from '../../lib/auth'
 
 
@@ -8,7 +8,8 @@ class Navbar extends React.Component {
     super()
 
     this.state = { 
-      navOpen: false 
+      navOpen: false,
+      user: false
     }
 
     this.toggleNavbar = this.toggleNavbar.bind(this)
@@ -19,15 +20,32 @@ class Navbar extends React.Component {
     this.setState({ navOpen: !this.state.navOpen })
   }
 
+  // checked which user to permission just the owner to do something in future
+  checkUser() {
+    if (Auth.isAuthenticated()) {
+      this.setState({ user: true })
+    }
+  }
+
   handleLogout() {
     Auth.logout()
+    this.setState({ user: false })
+    console.log(this.props)
     this.props.history.push('/')
   }
 
+  componentDidMount() {
+    console.log(this.props)
+    Auth.isAuthenticated() && this.checkUser()
+  }
+
   componentDidUpdate(prevProps) {
+    console.log(this.props)
     if (this.props.location.pathname !== prevProps.location.pathname) {
       this.setState({ navOpen: false })
+      Auth.isAuthenticated() && this.checkUser()
     }
+
   }
 
 
@@ -52,10 +70,12 @@ class Navbar extends React.Component {
           <div className={`navbar-menu ${this.state.navOpen ? 'is-active' : ''}`}>
             <div className="navbar-end">
               <Link className="navbar-item" to="/posts">All Posts</Link>
+              {console.log(Auth.isAuthenticated())}
               {!Auth.isAuthenticated() && <Link className="navbar-item" to="/login">Login</Link>}
               {!Auth.isAuthenticated() && <Link className="navbar-item" to="/register">Register</Link>}
-              {!Auth.isAuthenticated() && <Link className="navbar-item" to="/posts/new">Add a new Post</Link>}
-              {!Auth.isAuthenticated() && <a onClick={this.handleLogout} className="navbar-item">Logout</a>}
+              {Auth.isAuthenticated() && <Link className="navbar-item" to="/posts/new">Post for a Ringer</Link>}
+              {Auth.isAuthenticated() && <a onClick={this.handleLogout} className="navbar-item">Logout</a>}
+              {/* would use Auth.isOwner() for specific user instead of Auth.isAuthenticated - check */}
             </div>
           </div>
         </div>
@@ -65,4 +85,4 @@ class Navbar extends React.Component {
   }
 }
 
-export default Navbar
+export default withRouter(Navbar)

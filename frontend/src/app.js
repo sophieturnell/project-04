@@ -15,20 +15,22 @@ import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 
 const App = () => (
-  <BrowserRouter>
-    <>
-    <Navbar />
-    <Switch>
-      <Route exact path ="/" component={Home} />
-      <Route exact path ="/posts/:id/edit" component={PostEdit} />
-      <Route path="/posts/new" component={PostNew} />
-      <Route path="/posts/:id" component={PostShow} />
-      <Route path="/posts" component={PostsIndex} />
-      <Route path="/register" component={Register} />
-      <Route path="/login" component={Login} />
-    </Switch>
-    </>
-  </BrowserRouter>
+  <main>
+    <BrowserRouter>
+      <Navbar />
+      <Switch>
+
+        <Route exact path="/posts/:id/edit" component={PostEdit} />
+        <Route path="/posts/new" component={PostNew} />
+        <Route path="/posts/:id" component={PostShow} />
+        <Route path="/posts" component={PostsIndex} />
+        <Route path="/register" component={Register} />
+        <Route path="/login" component={Login} />
+        <Route exact path="/" component={Home} />
+      </Switch>
+    </BrowserRouter>
+  </main>
+ 
 )
 
 ReactDOM.render(
