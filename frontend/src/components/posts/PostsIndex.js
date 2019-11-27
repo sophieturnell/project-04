@@ -28,24 +28,25 @@ class PostsIndex extends React.Component {
     console.log(this.state.posts)
     return (
 
-      <section className="section">
-        <div className="container">
+      <div className="post-index-page">
+        <section className="section">
+          <div className="container">
 
           
-          <Link to={'/posts/new'} className="button is-warning">
-            Add a Ringer Request
-          </Link>
-          
-          <div className="columns is-mobile is-multiline">
-            {this.state.posts.map(post => (
-              <PostCard key={post.id} {...post} />
-            ))}
+            <Link to={'/posts/new'} className="button is-link is-fullwidth">
+            Click Here to Add a Ringer Request
+            </Link>
+            <br></br>
+            <div className="columns is-mobile is-multiline">
+              {this.state.posts.map(post => (
+                <PostCard key={post.id} {...post} />
+              ))}
+
+            </div>
 
           </div>
-
-        </div>
-      </section>
-
+        </section>
+      </div>
     )
   }
 

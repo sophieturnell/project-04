@@ -6,12 +6,12 @@ const Home = () => (
   <div className="home-page">
     <section className="hero is-fullheight-with-navbar">
       <div className="hero-body">
-        <div className="container has-background-dark">
+        <div className="container">
           <br></br>
           {/* <Link to={'/posts'} className="button is-warning">
               Ringers
           </Link> */}
-          <p className="title is-1 has-text-white has-text-centered">
+          <p className="title has-text-white has-text-centered">
           Ringers
           </p>
           <p className="subtitle is-3 has-text-info has-text-centered">

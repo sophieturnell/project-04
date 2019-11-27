@@ -44,19 +44,23 @@ class PostNew extends React.Component {
     if (!this.state.sports) return null
     console.log(this.state.data)
     return (
-      <section className="section">
-        <div className="container">
+      <div className="post-new">
         
-          <PostForm
-            data={this.state.data}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-            errors={this.state.errors}
-            sports={this.state.sports}
-          />
+        <section className="section">
+          <div className="container">
+        
+            <PostForm
+              data={this.state.data}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+              errors={this.state.errors}
+              sports={this.state.sports}
+            />
 
-        </div>
-      </section>
+          </div>
+        </section>
+
+      </div>
     )
   }
 

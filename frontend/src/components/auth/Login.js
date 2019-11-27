@@ -46,41 +46,49 @@ class Login extends React.Component {
 
   render() {
     return (
-      <section className="section">
-        <div className="container">
+      <div className="login-page">
+        <section className="hero is-fullheight-with-navbar">
+          <div className="hero-body">
 
-          <form onSubmit={this.handleSubmit}>
-            <h2 className="title">Login</h2>
-            <div className="field">
-              <label className="label">Email</label>
-              <div className="control">
-                <input
-                  className={`input ${this.state.error} ? : 'is-danger' : '' `}
-                  name="email"
-                  placeholder="Email"
-                  onChange={this.handleChange}
-                />
-              </div>
-            </div>
+            <section className="section">
+              <div className="container">
 
-            <div className="field">
-              <label className="label">Password</label>
-              <div className="control">
-                <input
-                  className={`input ${this.state.error} ? : 'is-danger' : '' `}
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  onChange={this.handleChange}
-                />
-              </div>
-              {this.state.error && <small className="help is-danger">{this.state.error}</small>}
-            </div>
-            <button type="submit" className="button is-info is-fullwidth">Login</button>
+                <form onSubmit={this.handleSubmit}>
+                  <h2 className="title has-text-grey-lighter">Login</h2>
+                  <div className="field">
+                    <label className="label has-text-grey-light">Email</label>
+                    <div className="control">
+                      <input
+                        className={`input ${this.state.error} ? : 'is-danger' : '' `}
+                        name="email"
+                        placeholder="Email"
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="field">
+                    <label className="label has-text-grey-light">Password</label>
+                    <div className="control">
+                      <input
+                        className={`input ${this.state.error} ? : 'is-danger' : '' `}
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                    {this.state.error && <small className="help is-danger">{this.state.error}</small>}
+                  </div>
+                  <button type="submit" className="button is-info is-fullwidth">Login</button>
             
-          </form>
-        </div>
-      </section>
+                </form>
+              </div>
+            </section>
+          </div>
+        </section>
+        
+      </div>
     )
   }
 
