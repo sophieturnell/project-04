@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 import PostCard from './PostCard'
 
 class PostsIndex extends React.Component {
@@ -29,9 +30,13 @@ class PostsIndex extends React.Component {
 
       <section className="section">
         <div className="container">
+
+          
+          <Link to={'/posts/new'} className="button is-warning">
+            Add a Ringer Request
+          </Link>
           
           <div className="columns is-mobile is-multiline">
-            {/* <div className="tile is-ancestor"> */}
             {this.state.posts.map(post => (
               <PostCard key={post.id} {...post} />
             ))}

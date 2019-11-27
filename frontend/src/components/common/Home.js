@@ -1,4 +1,5 @@
 import React from 'react'
+// import { Link } from 'react-router-dom'
 
 const Home = () => (
   <>
@@ -7,6 +8,9 @@ const Home = () => (
       <div className="hero-body">
         <div className="container has-background-dark">
           <br></br>
+          {/* <Link to={'/posts'} className="button is-warning">
+              Ringers
+          </Link> */}
           <p className="title is-1 has-text-white has-text-centered">
           Ringers
           </p>

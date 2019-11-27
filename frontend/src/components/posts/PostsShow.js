@@ -70,7 +70,7 @@ class PostShow extends React.Component {
               <h4 className="title is-4">Number of players needed</h4>
               <p>{post.number_of_players_needed}</p>
               <hr />
-              <a href="mailto:test@test.com" target="_blank" rel="noopener noreferrer" subject="Ringer avail" onClick="window.open('your WS URL');">Click to e-mail team_name</a>
+              <a className="button is-warning" href="mailto:test@test.com" target="_blank" rel="noopener noreferrer" subject="Ringer avail" onClick="window.open('your WS URL');">Click to e-mail team_name</a>
               <hr />
               <h4 className="title is-4">Comments</h4>
               <p>{post.comments.name}</p>
@@ -163,12 +163,14 @@ class PostShow extends React.Component {
                 </div>
               </article>
 
-              
+              <Link to={'/posts/new'} className="button is-warning">
+                Add a Ringer Request
+              </Link>
 
               {/* Show buttons if allowed to edit or delete */}
               {this.isOwner() &&
                   <>
-                    <Link to={`/posts/${post.id}/edit`} classNameName="button is-warning">
+                    <Link to={`/posts/${post.id}/edit`} className="button is-warning">
                       Edit Post
                     </Link>
                     <button onClick={this.handleDelete} className="button is-danger">Permanently Delete Post</button>
