@@ -14,9 +14,10 @@ const PostForm = ({ data, handleChange, handleSubmit, errors, sports }) => (
 
 
         <form onSubmit={handleSubmit}>
+          
 
           <div className="field">
-            <label className="label">Name of Post:</label>
+            <label className="label has-text-grey-light">Name of Post:</label>
             <div className="control">
               <input
                 className={`input ${errors.attention_grabber ? 'is-danger' : ''}`}
@@ -30,7 +31,7 @@ const PostForm = ({ data, handleChange, handleSubmit, errors, sports }) => (
           </div>
 
           <div className="field">
-            <label className="label">Sport Name:</label>
+            <label className="label has-text-grey-light">Sport Name:</label>
             <div className="control select" >
               <select onChange={handleChange} name="sport_name" value={data.sport_name || ''}>
                 <option disabled value="">Pick a Sport</option>
@@ -44,7 +45,7 @@ const PostForm = ({ data, handleChange, handleSubmit, errors, sports }) => (
 
 
           <div className="field">
-            <label className="label">Location Name:</label>
+            <label className="label has-text-grey-light">Location Name:</label>
             <div className="control">
               <input
                 className={`input ${errors.location_name ? 'is-danger' : ''}`}
@@ -58,7 +59,7 @@ const PostForm = ({ data, handleChange, handleSubmit, errors, sports }) => (
           </div>
 
           <div className="field">
-            <label className="label">Address:</label>
+            <label className="label has-text-grey-light">Address:</label>
             <div className="control">
               <input
                 className={`input ${errors.address ? 'is-danger' : ''}`}
@@ -72,11 +73,11 @@ const PostForm = ({ data, handleChange, handleSubmit, errors, sports }) => (
           </div>
   
           <div className="field">
-            <label className="label">Date:</label>
+            <label className="label has-text-grey-light">Date:</label>
             <div className="control">
               <input
                 className={`input ${errors.date ? 'is-danger' : ''}`}
-                placeholder="e.g. Mon 20th December"
+                placeholder="e.g. in format YYYY-MM-DD"
                 name="date"
                 onChange={handleChange}
                 value={data.date || ''}
@@ -87,11 +88,11 @@ const PostForm = ({ data, handleChange, handleSubmit, errors, sports }) => (
 
 
           <div className="field">
-            <label className="label">Time:</label>
+            <label className="label has-text-grey-light">Time:</label>
             <div className="control">
               <input
                 className={`input ${errors.time ? 'is-danger' : ''}`}
-                placeholder="e.g. 3pm"
+                placeholder="e.g. in format HH:MM"
                 name="time"
                 onChange={handleChange}
                 value={data.time || ''}
@@ -101,7 +102,7 @@ const PostForm = ({ data, handleChange, handleSubmit, errors, sports }) => (
           </div>
 
           <div className="field">
-            <label className="label">Position:</label>
+            <label className="label has-text-grey-light">Position:</label>
             <div className="control">
               <input
                 className={`input ${errors.position ? 'is-danger' : ''}`}
@@ -116,7 +117,7 @@ const PostForm = ({ data, handleChange, handleSubmit, errors, sports }) => (
 
     
           <div className="field">
-            <label className="label">Number of Players Needed:</label>
+            <label className="label has-text-grey-light">Number of Players Needed:</label>
             <div className="control">
               <input
                 className={`input ${errors.number_of_players_needed ? 'is-danger' : ''}`}
@@ -130,20 +131,35 @@ const PostForm = ({ data, handleChange, handleSubmit, errors, sports }) => (
           </div>
 
           <div className="field">
-            <label className="label">Team Name:</label>
+            <label className="label has-text-grey-light">Team Name:</label>
             <div className="control">
               <input
-                className={`input ${errors.owner ? 'is-danger' : ''}`}
+                className={`input ${errors.team_name ? 'is-danger' : ''}`}
                 placeholder="e.g. The Fulham Footballerzzz"
-                name="owner"
+                name="team_name"
                 onChange={handleChange}
-                value={data.owner || ''}
+                value={data.team_name || ''}
               />
             </div>
-            {errors.owner && <small className="help is-danger">{errors.owner}</small>}
+            {errors.owner && <small className="help is-danger">{errors.team_name}</small>}
           </div>
 
-          <button type="submit" className="button is-info is-fullwidth">Submit Request for Ringer(s)</button>
+          <div className="field">
+            <label className="label has-text-grey-light">Image:</label>
+            <div className="control">
+              <input
+                className={`input ${errors.post_image ? 'is-danger' : ''}`}
+                placeholder="e.g. http://bit.ly/2QZzGbm"
+                name="post_image"
+                onChange={handleChange}
+                value={data.post_image || ''}
+              />
+            </div>
+            {errors.owner && <small className="help is-danger">{errors.post_image}</small>}
+          </div>
+
+          <br></br>
+          <button type="submit" className="button is-link is-fullwidth">Submit Request for Ringer(s)</button>
 
         </form>
       </div>

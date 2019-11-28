@@ -49,6 +49,8 @@ class PostNew extends React.Component {
         <section className="section">
           <div className="container">
         
+            <h2 className="title has-text-grey-lighter">New Post</h2>
+            
             <PostForm
               data={this.state.data}
               handleChange={this.handleChange}

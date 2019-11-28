@@ -78,7 +78,7 @@
 },
 {
   "model": "posts.post",
-  "pk": 6,
+  "pk": 1,
   "fields": {
     "attention_grabber": "Brightling- for THE Title",
     "location_name": "Brightling Park",
@@ -97,7 +97,7 @@
 },
 {
   "model": "posts.post",
-  "pk": 6,
+  "pk": 2,
   "fields": {
     "attention_grabber": "Does anyone fancy playing for Wandsworth Cricket Club?",
     "location_name": "Wandsworth Park",
@@ -116,7 +116,7 @@
 },
 {
   "model": "posts.post",
-  "pk": 6,
+  "pk": 3,
   "fields": {
     "attention_grabber": "Huringham Cricket",
     "location_name": "Hurlingham Club",
@@ -135,7 +135,7 @@
 },
 {
   "model": "posts.post",
-  "pk": 6,
+  "pk": 4,
   "fields": {
     "attention_grabber": "Football.Is.Life",
     "location_name": "Rocks Lane Multi Sports Centre",
@@ -154,7 +154,7 @@
 },
 {
   "model": "posts.post",
-  "pk": 1,
+  "pk": 5,
   "fields": {
     "attention_grabber": "Help please!",
     "location_name": "Battersea Park",
@@ -173,7 +173,7 @@
 },
 {
   "model": "posts.post",
-  "pk": 2,
+  "pk": 6,
   "fields": {
     "attention_grabber": "Finals fill ins :)",
     "location_name": "Rocks Lane Multi Sports Centre",
@@ -192,7 +192,7 @@
 },
 {
   "model": "posts.post",
-  "pk": 3,
+  "pk": 7,
   "fields": {
     "attention_grabber": "Searching for super netballer",
     "location_name": "Parsons Green",
@@ -211,7 +211,7 @@
 },
 {
   "model": "posts.post",
-  "pk": 4,
+  "pk": 8,
   "fields": {
     "attention_grabber": "Desperately short tonight- please help!",
     "location_name": "Battersea Park",
@@ -230,7 +230,7 @@
 },
 {
   "model": "posts.post",
-  "pk": 5,
+  "pk": 9,
   "fields": {
     "attention_grabber": "Ringer needed for Winning team ;)",
     "location_name": "Clapham Common",
@@ -268,7 +268,7 @@
 },
 {
   "model": "posts.post",
-  "pk": 10,
+  "pk": 11,
   "fields": {
     "attention_grabber": "Mixed Netball",
     "location_name": "Rocks Lane Multi Sports Centre",
@@ -287,7 +287,7 @@
 },
 {
   "model": "posts.post",
-  "pk": 10,
+  "pk": 12,
   "fields": {
     "attention_grabber": "Looking for regular players",
     "location_name": "Barnes RFC",
@@ -306,7 +306,7 @@
 },
 {
   "model": "posts.post",
-  "pk": 10,
+  "pk": 13,
   "fields": {
     "attention_grabber": "Apple Acre Tennis",
     "location_name": "Apple Acre",
@@ -325,7 +325,7 @@
 },
 {
   "model": "posts.post",
-  "pk": 10,
+  "pk": 14,
   "fields": {
     "attention_grabber": "PM's Wiff Waff",
     "location_name": "Ping",
@@ -344,7 +344,7 @@
 },
 {
   "model": "posts.post",
-  "pk": 10,
+  "pk": 15,
   "fields": {
     "attention_grabber": "CASCAID Charity Place avail",
     "location_name": "Hyde Park Corner",
@@ -363,7 +363,7 @@
 },
 {
   "model": "posts.post",
-  "pk": 10,
+  "pk": 16,
   "fields": {
     "attention_grabber": "Drop out for JPM Run",
     "location_name": "Battersea Park",
@@ -382,7 +382,7 @@
 },
 {
   "model": "posts.post",
-  "pk": 10,
+  "pk": 17,
   "fields": {
     "attention_grabber": "Spots avail on our next adventure",
     "location_name": "Biaritz",
@@ -401,7 +401,7 @@
 },
 {
   "model": "posts.post",
-  "pk": 10,
+  "pk": 18,
   "fields": {
     "attention_grabber": "Undefeated",
     "location_name": "The Crystal Maze LIVE Experience - West End",
@@ -412,7 +412,7 @@
     "time": "20:00:00",
     "team_name": "Crystal Catchers",
     "post_image": "frontend/src/assets/crystalmaze-team.JPG",
-    "position": "looking for pyhsical zone player",
+    "position": "any",
     "number_of_players_needed": 1,
     "owner": 1,
     "sport_name": 11

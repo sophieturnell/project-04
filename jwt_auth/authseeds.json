@@ -1,7 +1,7 @@
 [
   {
     "model": "jwt_auth.user",
-    "pk": 1,
+    "pk": 2,
     "fields": {
       "username": "alan",
       "email": "Alan@email.com",
@@ -11,7 +11,7 @@
   },
   {
     "model": "jwt_auth.user",
-    "pk": 2,
+    "pk": 3,
     "fields": {
       "username": "Sophie",
       "email": "sophie@email.com",
@@ -21,10 +21,20 @@
   },
   {
     "model": "jwt_auth.user",
-    "pk": 2,
+    "pk": 4,
     "fields": {
       "username": "Rich",
       "email": "rich@email.com",
+      "password": "generalassembly",
+      "profile_image": "https://ksassets.timeincuk.net/wp/uploads/sites/55/2016/07/2015AlanPartridge_getty174344997_120815-920x610.jpg"
+    }
+  },
+  {
+    "model": "jwt_auth.user",
+    "pk": 5,
+    "fields": {
+      "username": "Frankie",
+      "email": "f@email.com",
       "password": "generalassembly",
       "profile_image": "https://ksassets.timeincuk.net/wp/uploads/sites/55/2016/07/2015AlanPartridge_getty174344997_120815-920x610.jpg"
     }

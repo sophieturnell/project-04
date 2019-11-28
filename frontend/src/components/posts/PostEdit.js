@@ -20,6 +20,7 @@ class PostEdit extends React.Component {
   }
 
   componentDidMount() {
+    console.log('2', this.props.match.params.id)
     // TRY TO PREPOPULATE
     // console.log('mounting', this.props.match.params)
     // const sportId = this.props.match.params.id
@@ -38,7 +39,7 @@ class PostEdit extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    axios.post('/api/posts', this.state.data, {
+    axios.put(`/api/posts/${this.props.match.params.id}/`, this.state.data, {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
       .then(() => this.props.history.push('/posts'))
@@ -52,6 +53,7 @@ class PostEdit extends React.Component {
       <section className="section">
         <div className="container">
 
+          <h2 className="title has-text-grey-lighter">Edit Post</h2>
           <PostForm
             data={this.state.data}
             handleChange={this.handleChange}

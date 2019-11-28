@@ -40,7 +40,7 @@ class PostShow extends React.Component {
   render() {
     if (!this.state.post) return null
     const { post } = this.state
-    console.log('rendered')
+    console.log('post', post)
     return (
       <div className="posts-show-page">
         <section className="section">
@@ -70,22 +70,32 @@ class PostShow extends React.Component {
                 <h4 className="title is-4 has-text-grey-light">Number of players needed</h4>
                 <p>{post.number_of_players_needed}</p>
                 <hr />
-                <a className="button is-link is-fullwidth" href="mailto:test@test.com" target="_blank" rel="noopener noreferrer" subject="Ringer avail" onClick="window.open('your WS URL');">Click to e-mail team_name</a>
-                
+                {/* <a className="button is-link is-fullwidth" href="mailto:test@test.com" target="_blank" rel="noopener noreferrer" subject="Ringer avail" onClick="window.open('your WS URL');">Click to e-mail team_name</a> */}
+                <a className="button is-link is-fullwidth" href={`mailto:${post.owner.email}`} target="_blank" rel="noopener noreferrer" subject="Ringer avail" onClick="window.open('your WS URL');">{`Click to contact the ${post.team_name}`}</a>
+
                 <br></br>
                 <Link to={'/posts/new'} className="button is-link">
                 Add a Ringer Request
                 </Link>
-
+                <br></br>
+                <br></br>
                 {/* Show buttons if allowed to edit or delete */}
+                
+                  
                 {this.isOwner() &&
                   <>
-                    <Link to={`/posts/${post.id}/edit`} className="button is-link">
+                    
+                      <Link to={`/posts/${post.id}/edit`} className="button is-link">
                       Edit Post
-                    </Link>
-                    <button onClick={this.handleDelete} className="button is-danger">Permanently Delete Post</button>
+                      </Link>
+                  <br></br>
+                    <br></br>
+                    
+                      <button onClick={this.handleDelete} className="button is-danger is fullwidth">Permanently Delete Post</button>
+                    
                   </>
                 }
+                
 
               </div>
             </div>
