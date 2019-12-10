@@ -4,11 +4,12 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+django = ">=2.2.8"
 pylint = "*"
 autopep8 = "*"
 
 [packages]
-django = "*"
+django = ">=2.2.8"
 psycopg2-binary = "*"
 djangorestframework = "*"
 pyjwt = "*"
