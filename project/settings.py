@@ -1,3 +1,5 @@
+import django_heroku # for deployment put this first
+
 """
 Django settings for project project.
 
@@ -136,3 +138,6 @@ REST_FRAMEWORK = { #Allows RFW to use custom authentication classes
 }
 
 AUTH_USER_MODEL = 'jwt_auth.User' # regsitering our custom user model as the auth model.
+
+
+django_heroku.settings(locals()) # for Heroku deployment - put this last

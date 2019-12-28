@@ -102,7 +102,7 @@ class PostShow extends React.Component {
           </div>
         </section>
 
-        {/* COMMENTS SECTION */}
+        {/* COMMENTS SECTION
         <section className="section">
           <div className="container">
 
@@ -113,8 +113,8 @@ class PostShow extends React.Component {
 
 
 
-            {/* COMMENTS ELEMENT */}
-            {/* first comment */}
+            COMMENTS ELEMENT
+            first comment
             <article className="media">
               <figure className="media-left">
                 <p className="image is-64x64">
@@ -133,7 +133,7 @@ class PostShow extends React.Component {
                   </p>
                 </div>
 
-                {/* second comment-nested */}
+                second comment-nested
                 <article className="media">
                   <figure className="media-left">
                     <p className="image is-48x48">
@@ -154,7 +154,7 @@ class PostShow extends React.Component {
                   </div>
                 </article>
 
-                {/* third comment-nested */}
+                third comment-nested
                 <article className="media">
                   <figure className="media-left">
                     <p className="image is-48x48">
@@ -175,7 +175,7 @@ class PostShow extends React.Component {
                   </div>
                 </article>
 
-                {/* new comment */}
+                new comment
               </div>
             </article>
             <article className="media">
@@ -199,7 +199,7 @@ class PostShow extends React.Component {
             </article>
 
           </div>
-        </section>
+        </section> */}
       </div>
     )
   }

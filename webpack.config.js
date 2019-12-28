@@ -1,7 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+// const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: './src/app.js',
@@ -11,6 +11,7 @@ module.exports = {
     path: path.resolve(__dirname, 'frontend/dist'),
     publicPath: '/'
   },
+  devtool: 'source-maps',
   module: {
     rules: [
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
@@ -29,7 +30,7 @@ module.exports = {
     contentBase: path.resolve('src'),
     hot: true,
     open: true,
-    port: 4000,
+    port: 8000,
     watchContentBase: true,
     historyApiFallback: true,
     proxy: {
@@ -45,9 +46,6 @@ module.exports = {
       template: 'src/index.html',
       filename: 'index.html',
       inject: 'body'
-    }),
-    new CopyWebpackPlugin([
-      { from: './src/assets', to: 'assets' }
-    ])
+    })
   ]
 }
