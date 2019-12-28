@@ -127,7 +127,7 @@ Finally, I tested and fixed the remaining bugs before working on last minute sty
 - Getting the styling to a level I am happy with
 - Deploying the project using Heroku
 
- 
+
 ## Future Improvements
 - Add Mapbox to visually locate events nearby
 - User can search for events by sport, location, date and time
