@@ -3,13 +3,13 @@
 # Ringers
 <img src="https://imgur.com/fs95T4l.jpg">
 
- 
+
 ## Brief
 Build a full stack app by making your own front and back end using a Python Django API. The app will most likely have multiple relationships and CRUD functionality for at least a couple of models.
 
 Timeframe: 1 week, independent coding
 
- 
+
 ## Summary
 Ringers is a full stack app for sourcing team players at the last minute. I used Python and Django REST Framework to serve my data from a Postgres database (visualised in TablePlus), and React on the front end. The app has multiple relationships and CRUD functionality. 
 
@@ -19,7 +19,7 @@ Ringers is a full stack app for sourcing team players at the last minute. I used
 ### Installation Instructions
 To run the app from the source code, use the clone button to download the source code from GitHub. From the root directory type "yarn", "yarn seed" and "yarn start" in the terminal. The project will run on localhost:4000 and will be viewable on any web browser.
 
-   
+
 ## Technologies & Methodologies Used
 - HTML5
 - CSS3
@@ -42,13 +42,13 @@ To run the app from the source code, use the clone button to download the source
 - RESTful APIs
 - CRUD Functionality
 
- 
+
 ## Features
 - Navigation bar that displays different items depending on the login status of the user 
 - An 'All Posts' page that displays all the ringers required, including the date, time and location of the fixture
 - Users can login to create, edit and delete their own posts
 
- 
+
 ## Website Architecture
 
 *Home Page*
@@ -63,7 +63,7 @@ To run the app from the source code, use the clone button to download the source
 *Show Page*
 <img src="https://imgur.com/BdA73j2.jpg">
 
- 
+
 ## Approach
 
 ### Day 1
@@ -120,7 +120,7 @@ I also tried saving images for seeds in assets files but encountered a CORBs iss
 
 Finally, I tested and fixed the remaining bugs before working on last minute styling.
 
- 
+
 ## Challenges Still To Overcome
 - Using Imgur to show images
 - Pre populating the edit form
@@ -147,7 +147,7 @@ Finally, I tested and fixed the remaining bugs before working on last minute sty
 - Allowing only hosts to edit and delete their posts
 - Adding contact email links
 
- 
+
 ## Takeaways
 This project identified several gaps in my knowledge. I spent too much time adding elements to the back end, which meant that I was restricted in what I could achieve on the front end. 
 
