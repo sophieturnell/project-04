@@ -163,8 +163,11 @@ I found using Django frustrating, as it was quite rigid and the setup was very s
 
 I need to focus on keeping the MVP simple and adding in styling much earlier so I can visualise the priorities.
 
----
+___
 
-linkedin.com/in/sophieturnell/
 
----
+www.linkedin.com/in/sophieturnell
+  
+www.sophieturnell.com
+
+___
