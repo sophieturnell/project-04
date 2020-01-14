@@ -54,9 +54,6 @@ To run the app from the source code, use the clone button to download the source
 *Home Page*
 <img src="https://imgur.com/fs95T4l.jpg">
 
-*Index Page* 
-<img src="to follow when deployed">
-
 *New Post Form*
 <img src="https://imgur.com/qrgqvlO.jpg">
 
